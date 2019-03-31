@@ -16,3 +16,4 @@ for file in glob.glob(path+"*.png"):
     output_file.write("%s,%s\n"%(imageID,",".join(features)))
 
 output_file.close()
+

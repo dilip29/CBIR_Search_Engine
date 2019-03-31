@@ -58,3 +58,4 @@ image=cv2.imread("103100.png")
 cd=ColorDescriptor((2,2,2))
 print(len(cd.describeImage(image)))
 '''
+
