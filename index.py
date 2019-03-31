@@ -2,7 +2,7 @@ from colordescriptor import ColorDescriptor
 import cv2
 import glob
 import csv
-cd=ColorDescriptor((2,2,2))
+cd=ColorDescriptor((7,10,3))
 path="Dataset/"
 images_list=[]
 output_file=open("features_index.csv","w")
@@ -12,8 +12,8 @@ for file in glob.glob(path+"*.png"):
     image=cv2.imread(file)
 
     features=cd.describeImage(image)
+    print(imageID," processed ")
     features=[str(f) for f in features]
     output_file.write("%s,%s\n"%(imageID,",".join(features)))
 
 output_file.close()
-

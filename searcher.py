@@ -36,7 +36,7 @@ class Searcher:
     def chi2_distance(self,Histogram1,Histogram2,eps=1e-10):
         # defining the chi squared function
         distance=0.5*np.sum([ ( (a-b)**2) / (a+b+ eps) for (a,b) in zip(Histogram1,Histogram2)])
-
+        print("Distance",distance)
         return distance
 '''
 cd=ColorDescriptor((2,2,2))
@@ -45,4 +45,3 @@ features=cd.describeImage(image)
 sd=Searcher("features_index.csv")
 print(sd.search(features,10))
 '''
-

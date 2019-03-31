@@ -51,4 +51,3 @@ for i in range(6):
 '''
 
 show_images(images_set,4)
-
