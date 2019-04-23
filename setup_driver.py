@@ -23,9 +23,9 @@ def show_images(images, cols = 1):
     fig.set_size_inches(np.array(fig.get_size_inches()) * (n_images))
     plt.show()
 
-cd=ColorDescriptor((7,10,3))
+cd=ColorDescriptor((6,8,3))
 #query_image=input("Enter the Query Image :  ")
-query_image="Dataset/127400.png"
+query_image="Dataset/balliol_000067.jpg"
 query_image=cv2.imread(query_image)
 features=cd.describeImage(query_image)
 
@@ -35,8 +35,10 @@ images_set=[]
 images_set.append(query_image)
 #show_images(images_set,1)
 
+print("\n\nImages Matched")
 for result in results:
     result_image=cv2.imread("Dataset/"+result[1])
+    print(result[1])
     images_set.append(result_image)
 
 
