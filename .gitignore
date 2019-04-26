@@ -1,4 +1,5 @@
 /Dataset
 *.csv#
 /Dataset_old
-
+__pycache__/
+*.pyc

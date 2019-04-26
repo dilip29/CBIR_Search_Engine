@@ -1,6 +1,5 @@
 import numpy as np
 import cv2
-import imutils
 
 class ColorDescriptor:
     def __init__(self,bins):
@@ -58,4 +57,3 @@ image=cv2.imread("103100.png")
 cd=ColorDescriptor((2,2,2))
 print(len(cd.describeImage(image)))
 '''
-
