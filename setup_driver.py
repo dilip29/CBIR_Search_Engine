@@ -2,6 +2,7 @@ from colordescriptor import ColorDescriptor
 from searcher import Searcher
 import cv2
 import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 from PIL import Image
 import numpy as np
 
@@ -23,21 +24,22 @@ def show_images(images, cols = 1):
     fig.set_size_inches(np.array(fig.get_size_inches()) * (n_images))
     plt.show()
 
-cd=ColorDescriptor((6,8,3))
+cd=ColorDescriptor((8,12,3))
 #query_image=input("Enter the Query Image :  ")
-query_image="Dataset/balliol_000067.jpg"
-query_image=cv2.imread(query_image)
+query_image_path="Dataset/oxford5k_images/balliol_000032.jpg"
+query_image=cv2.imread(query_image_path)
 features=cd.describeImage(query_image)
 
 sd=Searcher("features_index.csv")
 results=sd.search(features,15)
 images_set=[]
-images_set.append(query_image)
+images_set.append(mpimg.imread(query_image_path))
 #show_images(images_set,1)
 
 print("\n\nImages Matched")
 for result in results:
-    result_image=cv2.imread("Dataset/"+result[1])
+    # result_image=cv2.imread("Dataset/oxford5k_images/"+result[1])
+    result_image = mpimg.imread("Dataset/oxford5k_images/"+result[1])
     print(result[1])
     images_set.append(result_image)
 
