@@ -120,8 +120,7 @@ def show_images(images, cols = 1):
         a.axis('off')
         plt.imshow(image)
 
-        a.set_title(title)
-    print(np.array(fig.get_size_inches()) * (n_images))
+        a.set_title(title
     fig.set_size_inches(np.array(fig.get_size_inches()) * (n_images))
     plt.show()
 
