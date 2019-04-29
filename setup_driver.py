@@ -4,6 +4,7 @@ import cv2
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from PIL import Image
+import argparse
 import numpy as np
 
 def show_images(images, cols = 1):
@@ -24,9 +25,19 @@ def show_images(images, cols = 1):
     fig.set_size_inches(np.array(fig.get_size_inches()) * (n_images))
     plt.show()
 
+parser = argparse.ArgumentParser()
+parser.add_argument(
+  '--query',
+  type=str,
+  required=True,
+  help="""
+  Path to the query image
+  """)
+cmd_args, unparsed = parser.parse_known_args()
+
 cd=ColorDescriptor((8,12,3))
 #query_image=input("Enter the Query Image :  ")
-query_image_path="Dataset/oxford5k_images/balliol_000032.jpg"
+query_image_path=cmd_args.query
 query_image=cv2.imread(query_image_path)
 features=cd.describeImage(query_image)
 
